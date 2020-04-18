@@ -1,16 +1,22 @@
 <template>
   <div id="app">
     <Header/>
+    <GoogleMap/>
+    <Footer/>
   </div>
 </template>
 
 <script>
 import Header from './components/layout/Header';
+import Footer from './components/layout/Footer';
+import GoogleMap from './components/GoogleMap';
 
 export default {
   name: 'App',
   components: {
-    Header
+    Header,
+    GoogleMap,
+    Footer
   }
 }
 </script>
