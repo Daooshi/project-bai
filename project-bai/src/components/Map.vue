@@ -2,10 +2,10 @@
 
   <div style="height: 500px; width: 100%">
     <div style="height: 200px overflow: auto;">
-      <p>First marker is placed at {{ withPopup.lat }}, {{ withPopup.lng }}</p>
-      <p>Center is at {{ currentCenter }} and the zoom is: {{ currentZoom }}</p>
+      <p>These are our stores. Click on them for more info!</p>
+      <br>
       <button @click="showLongText">
-        Toggle long popup
+        Show availablity in the store
       </button>
       <button @click="showMap = !showMap">
         Toggle map
@@ -27,26 +27,27 @@
       <l-marker :lat-lng="withPopup">
         <l-popup>
           <div @click="innerClick">
-            I am a popup
+            Store number 1
             <p v-show="showParagraph">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-              sed pretium nisl, ut sagittis sapien. Sed vel sollicitudin nisi.
-              Donec finibus semper metus id malesuada.
+                Available items to rent:
+                - Item 1 x2
+                - Item 2 x5
             </p>
           </div>
         </l-popup>
       </l-marker>
-      <l-marker :lat-lng="withTooltip">
-        <l-tooltip :options="{ permanent: true, interactive: true }">
+      <l-marker :lat-lng="withPopup2">
+        <l-popup>
           <div @click="innerClick">
-            Sample marker
+            Store number 2
             <p v-show="showParagraph">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-              sed pretium nisl, ut sagittis sapien. Sed vel sollicitudin nisi.
-              Donec finibus semper metus id malesuada.
+                Available items to rent:
+                - Item 1 x3
+                - Item 2 x8
+                - Item 3 x10
             </p>
           </div>
-        </l-tooltip>
+        </l-popup>
       </l-marker>
     </l-map>
   </div>
@@ -54,7 +55,7 @@
 
 <script>
 import { latLng } from "leaflet";
-import { LMap, LTileLayer, LMarker, LPopup, LTooltip } from "vue2-leaflet";
+import { LMap, LTileLayer, LMarker, LPopup } from "vue2-leaflet";
 import { Icon } from 'leaflet';
 
 delete Icon.Default.prototype._getIconUrl;
@@ -71,8 +72,7 @@ export default {
     LMap,
     LTileLayer,
     LMarker,
-    LPopup,
-    LTooltip
+    LPopup
   },
   data() {
     return {
@@ -82,7 +82,7 @@ export default {
       attribution:
         '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
       withPopup: latLng(50.056806, 19.951279),
-      withTooltip: latLng(50.067724, 19.928360),
+      withPopup2: latLng(50.067724, 19.928360),
       currentZoom: 13,
       currentCenter: latLng(50.064878, 19.965705),
       showParagraph: false,
