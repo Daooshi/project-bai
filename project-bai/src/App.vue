@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header/>
-    <GoogleMap/>
+    <Map/>
     <Footer/>
   </div>
 </template>
@@ -9,13 +9,13 @@
 <script>
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
-import GoogleMap from './components/GoogleMap';
+import Map from './components/Map';
 
 export default {
   name: 'App',
   components: {
     Header,
-    GoogleMap,
+    Map,
     Footer
   }
 }
