@@ -2,7 +2,10 @@
   <div id="app">
     <Header/>
     <FacebookUser/>
+    <Weather/>
     <Map/>
+    <AddReservation/>
+    <Reservations/>
     <Footer/>
   </div>
 </template>
@@ -12,18 +15,26 @@ import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import FacebookUser from './components/FacebookUser';
 import Map from './components/Map';
+import AddReservation from './components/AddReservation';
+import Reservations from './components/Reservations';
+import Weather from './components/Weather';
+
 export default {
   name: 'App',
   components: {
     Header,
+    Weather,
     Map,
     Footer,
-    FacebookUser
+    FacebookUser,
+    AddReservation,
+    Reservations
   },data(){
     return{
     loggedIn: false,
     name: "User"
     }
+
   }
 }
 </script>
