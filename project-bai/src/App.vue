@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <Header/>
+    <Weather/>
     <Map/>
     <Footer/>
   </div>
@@ -10,13 +11,15 @@
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import Map from './components/Map';
+import Weather from './components/Weather';
 
 export default {
   name: 'App',
   components: {
     Header,
     Map,
-    Footer
+    Footer,
+    Weather
   }
 }
 </script>
