@@ -2,8 +2,19 @@
     <div>
         <h3>Add a reservation</h3>
         <div class="add"> 
-            <form @submit="onSubmit">  
-                <input type="text" v-model="title" placeholder="Add a reservation...">
+            <form @submit="onSubmit" action="https://vuejs.org/" method="post">  
+                <span><b>First Name:</b></span>
+                <input type="text" v-model="reservation.name">
+                <span><b>Store:</b></span>
+                <select v-model="reservation.store">
+                    <option disabled value="">Please choose:</option>
+                    <option>Store number 1</option>
+                    <option>Store number 2</option>
+                </select>
+                <span><b>Number of bicycles:</b></span>
+                <input type="number" v-model="reservation.amount" min="1">
+                <span><b>Comment:</b></span>
+                <input type="text" v-model="reservation.comment" placeholder="Add a comment...">
                 <input type="submit" value="Submit">
             </form>
         </div>
@@ -17,14 +28,19 @@ export default {
     name: "AddReservation",
     data() {
         return {
-            title: ''
+            reservation: {
+                name: '',
+                store:'',
+                amount: 0,
+                comment: ''
+            }
         }
     },
     methods: {
         ...mapActions(['addReservation']),
         onSubmit(e){
             e.preventDefault();
-            this.addReservation(this.title);
+            this.addReservation(this.reservation);
         }
     }
 }
