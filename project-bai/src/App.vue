@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <Header/>
+    <FacebookUser/>
     <Map/>
     <Footer/>
   </div>
@@ -9,14 +10,20 @@
 <script>
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
+import FacebookUser from './components/FacebookUser';
 import Map from './components/Map';
-
 export default {
   name: 'App',
   components: {
     Header,
     Map,
-    Footer
+    Footer,
+    FacebookUser
+  },data(){
+    return{
+    loggedIn: false,
+    name: "User"
+    }
   }
 }
 </script>
