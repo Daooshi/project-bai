@@ -1,7 +1,10 @@
 <template>
   <div id="app">
     <Header/>
+    <Weather/>
     <Map/>
+    <AddReservation/>
+    <Reservations/>
     <Footer/>
   </div>
 </template>
@@ -10,13 +13,19 @@
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import Map from './components/Map';
+import AddReservation from './components/AddReservation';
+import Reservations from './components/Reservations';
+import Weather from './components/Weather';
 
 export default {
   name: 'App',
   components: {
     Header,
+    Weather,
     Map,
-    Footer
+    Footer,
+    AddReservation,
+    Reservations
   }
 }
 </script>
