@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <Header/>
+    <Weather/>
     <Map/>
     <AddReservation/>
     <Reservations/>
@@ -14,11 +15,13 @@ import Footer from './components/layout/Footer';
 import Map from './components/Map';
 import AddReservation from './components/AddReservation';
 import Reservations from './components/Reservations';
+import Weather from './components/Weather';
 
 export default {
   name: 'App',
   components: {
     Header,
+    Weather,
     Map,
     Footer,
     AddReservation,
