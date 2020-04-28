@@ -27,11 +27,10 @@
       <l-marker :lat-lng="withPopup">
         <l-popup>
           <div @click="innerClick">
-            Store number 1
+            Store k.Gurgacza 6
             <p v-show="showParagraph">
-                Available items to rent:
-                - Item 1 x2
-                - Item 2 x5
+                Available segways to rent:
+                {{allAvailability.gurgacza}}
             </p>
           </div>
         </l-popup>
@@ -39,12 +38,10 @@
       <l-marker :lat-lng="withPopup2">
         <l-popup>
           <div @click="innerClick">
-            Store number 2
+            Store Karmelicka 45
             <p v-show="showParagraph">
-                Available items to rent:
-                - Item 1 x3
-                - Item 2 x8
-                - Item 3 x10
+                Available segways to rent:
+                {{allAvailability.karmelicka}}
             </p>
           </div>
         </l-popup>
@@ -57,6 +54,7 @@
 import { latLng } from "leaflet";
 import { LMap, LTileLayer, LMarker, LPopup } from "vue2-leaflet";
 import { Icon } from 'leaflet';
+import {mapGetters} from 'vuex';
 
 delete Icon.Default.prototype._getIconUrl;
 Icon.Default.mergeOptions({
@@ -64,7 +62,6 @@ Icon.Default.mergeOptions({
   iconUrl: require('leaflet/dist/images/marker-icon.png'),
   shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
 });
-
 
 export default {
   name: "Map",
@@ -105,6 +102,7 @@ export default {
     innerClick() {
       alert("Click!");
     }
-  }
+  },
+  computed: mapGetters(['allReservations', 'allAvailability'])
 };
 </script>

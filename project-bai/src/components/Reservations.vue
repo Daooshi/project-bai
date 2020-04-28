@@ -3,7 +3,7 @@
         <h3>Reservations</h3>
         <div class="reservations"> 
             <div v-for="reservation in allReservations" :key="reservation.id" class="reservation"> 
-                {{reservation.name}}, {{reservation.store}}: {{reservation.amount}} Bicycles
+                {{reservation.name}}, {{reservation.store}}: {{reservation.amount}} Segways
             </div>
         </div>
     </div>
@@ -15,11 +15,12 @@ import {mapGetters, mapActions} from 'vuex';
 export default {
     name: "Reservations",
     methods: {
-        ...mapActions(['fetchReservations'])
+        ...mapActions(['fetchReservations', 'calculateReservation'])
     },
     computed: mapGetters(['allReservations']),
     created() {
         this.fetchReservations();
+        this.calculateReservation();
     }
 };
 </script>

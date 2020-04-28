@@ -5,13 +5,13 @@
             <form @submit="onSubmit" action="https://vuejs.org/" method="post">  
                 <span><b>First Name:</b></span>
                 <input type="text" v-model="reservation.name">
-                <span><b>Store:</b></span>
+                <span><b>Pickup:</b></span>
                 <select v-model="reservation.store">
                     <option disabled value="">Please choose:</option>
-                    <option>Store number 1</option>
-                    <option>Store number 2</option>
+                    <option>Store Karmelicka</option>
+                    <option>Store k.Gurgacza</option>
                 </select>
-                <span><b>Number of bicycles:</b></span>
+                <span><b>Number of segways:</b></span>
                 <input type="number" v-model="reservation.amount" min="1">
                 <span><b>Comment:</b></span>
                 <input type="text" v-model="reservation.comment" placeholder="Add a comment...">
@@ -37,10 +37,11 @@ export default {
         }
     },
     methods: {
-        ...mapActions(['addReservation']),
+        ...mapActions(['addReservation', 'calculateReservation']),
         onSubmit(e){
             e.preventDefault();
             this.addReservation(this.reservation);
+            this.calculateReservation();
         }
     }
 }
