@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <Header/>
+    <FacebookUser/>
     <Weather/>
     <Map/>
     <AddReservation/>
@@ -12,6 +13,7 @@
 <script>
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
+import FacebookUser from './components/FacebookUser';
 import Map from './components/Map';
 import AddReservation from './components/AddReservation';
 import Reservations from './components/Reservations';
@@ -24,8 +26,15 @@ export default {
     Weather,
     Map,
     Footer,
+    FacebookUser,
     AddReservation,
     Reservations
+  },data(){
+    return{
+    loggedIn: false,
+    name: "User"
+    }
+
   }
 }
 </script>

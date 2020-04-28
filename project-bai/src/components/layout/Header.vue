@@ -1,6 +1,6 @@
 <template>
     <header class="header">
-        <h1>Rental Company</h1>
+        <h1>Segway Rental Company</h1>
     </header>
 </template>
 
