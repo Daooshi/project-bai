@@ -34,7 +34,9 @@ export default {
     loggedIn: false,
     name: "User"
     }
-
+  },
+  methods(){
+    
   }
 }
 </script>
