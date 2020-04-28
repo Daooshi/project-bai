@@ -37,10 +37,11 @@ export default {
         }
     },
     methods: {
-        ...mapActions(['addReservation']),
+        ...mapActions(['addReservation', 'calculateReservation']),
         onSubmit(e){
             e.preventDefault();
             this.addReservation(this.reservation);
+            this.calculateReservation();
         }
     }
 }
