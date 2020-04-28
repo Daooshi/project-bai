@@ -27,11 +27,10 @@
       <l-marker :lat-lng="withPopup">
         <l-popup>
           <div @click="innerClick">
-            Store number 1
+            Store k.Gurgacza 6
             <p v-show="showParagraph">
-                Available items to rent:
-                - Item 1 x2
-                - Item 2 x5
+                Available segways to rent:
+                - 4
             </p>
           </div>
         </l-popup>
@@ -39,12 +38,10 @@
       <l-marker :lat-lng="withPopup2">
         <l-popup>
           <div @click="innerClick">
-            Store number 2
+            Store Karmelicka 45
             <p v-show="showParagraph">
-                Available items to rent:
-                - Item 1 x3
-                - Item 2 x8
-                - Item 3 x10
+                Available segways to rent:
+                - 6
             </p>
           </div>
         </l-popup>
@@ -64,7 +61,6 @@ Icon.Default.mergeOptions({
   iconUrl: require('leaflet/dist/images/marker-icon.png'),
   shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
 });
-
 
 export default {
   name: "Map",
