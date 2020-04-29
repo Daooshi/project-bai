@@ -6,6 +6,7 @@
     <Map/>
     <AddReservation/>
     <Reservations/>
+    <Contact/>
     <Footer/>
   </div>
 </template>
@@ -13,6 +14,7 @@
 <script>
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
+import Contact from './components/layout/Contact';
 import FacebookUser from './components/FacebookUser';
 import Map from './components/Map';
 import AddReservation from './components/AddReservation';
@@ -25,10 +27,11 @@ export default {
     Header,
     Weather,
     Map,
-    Footer,
     FacebookUser,
     AddReservation,
-    Reservations
+    Reservations,
+    Contact,
+    Footer
   },data(){
     return{
     loggedIn: false,
