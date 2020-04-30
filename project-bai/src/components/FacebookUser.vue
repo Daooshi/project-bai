@@ -64,8 +64,6 @@ import facebookLogin from 'facebook-login-vuejs';
     this.getUserData()
     },
     onLogout() {
-    var arr = [this.personalID,this.email,this.name,this.isConnected,false]
-    this.$emit('setLoginData', arr)
     this.isConnected = false;
     var arr = [this.personalID,this.email,this.name,this.isConnected,false]
     this.$emit('setLoginData', arr)
