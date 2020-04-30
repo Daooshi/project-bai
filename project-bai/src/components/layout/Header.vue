@@ -1,6 +1,8 @@
 <template>
     <header class="header">
-        <h1>Segway Rental Company</h1>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+        <a class="navbar-brand" href="#">Segway Rental Company</a>
+        </nav>
     </header>
 </template>
 
@@ -14,11 +16,8 @@
     .header {
         background: #333;
         color: #fff;
-        text-align: center;
-        padding: 10px;
-    }
-    .header a{
-        color: #fff;
-        padding-right: 5px;
-    }
+        text-align: match;
+        width: 100%;
+
+}
 </style>
