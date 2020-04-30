@@ -9,7 +9,7 @@
       @sdk-loaded="sdkLoaded">
     </facebook-login>
     <div v-if="isConnected" class="information">
-      <h1>My Facebook Information</h1>
+      <h1>Hi {{name}}! You are logged in.</h1>
       <div class="well">
         <div class="list-item">
           <img :src="picture">
@@ -53,6 +53,9 @@ import facebookLogin from 'facebook-login-vuejs';
         this.email = user.email;
         this.name = user.name;
         this.picture = user.picture.data.url;
+        var isAdm = this.isAdmin(this.email)
+        var arr = [this.personalID,this.email,this.name,this.isConnected,isAdm]
+        this.$emit('setLoginData', arr)
         }
     )
     },
@@ -63,12 +66,18 @@ import facebookLogin from 'facebook-login-vuejs';
     },
     onLogin() {
     this.isConnected = true
-    var arr = [this.personalID,this.email,this.name,this.isConnected]
-    this.$emit('setLoginData', arr)
     this.getUserData()
     },
     onLogout() {
+    var arr = [this.personalID,this.email,this.name,this.isConnected,false]
+    this.$emit('setLoginData', arr)
     this.isConnected = false;
+    },
+    isAdmin(email){
+        if(email==="sucharek7@gmail.com"){
+            return true
+        }
+        return false
     }
     }}
 </script>

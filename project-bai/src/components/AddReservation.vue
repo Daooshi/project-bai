@@ -1,9 +1,10 @@
 <template>
     <div>
         <h3>Add a reservation</h3>
+        <div v-if="isConnected">
         <div class="add"> 
             <form @submit="onSubmit" action="https://vuejs.org/" method="post">  
-                <span><b>First Name:</b></span>
+                <span ><b>First Name:</b></span>
                 <input type="text" v-model="reservation.name">
                 <span><b>Pickup:</b></span>
                 <select v-model="reservation.store">
@@ -18,6 +19,11 @@
                 <input type="submit" value="Submit">
             </form>
         </div>
+        </div>
+        <div v-else>
+                    <h3>Please log in by faceook if you want to make reservation</h3>
+
+        </div>
     </div>
 </template>
 
@@ -26,6 +32,10 @@ import {mapActions} from 'vuex';
 
 export default {
     name: "AddReservation",
+    props:{
+        userName: String,
+        isConnected:Boolean
+    },
     data() {
         return {
             reservation: {
@@ -36,12 +46,20 @@ export default {
             }
         }
     },
+    watch:{
+        'userName': function (){
+            this.setName(this.userName)
+        }
+    },
     methods: {
         ...mapActions(['addReservation', 'calculateReservation']),
         onSubmit(e){
             e.preventDefault();
             this.addReservation(this.reservation);
             this.calculateReservation();
+        },
+        setName(name){
+            this.reservation.name = name
         }
     }
 }

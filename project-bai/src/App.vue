@@ -1,11 +1,11 @@
 <template>
   <div id="app">
     <Header/>
-    <FacebookUser/>
+    <FacebookUser @setLoginData="setLoginData"> </FacebookUser>>
     <Weather/>
     <Map/>
-    <AddReservation/>
-    <Reservations/>
+    <AddReservation :userName="userName" :isConnected ="isConnected"></AddReservation>
+    <Reservations :isAdmin = "isAdmin"></Reservations>
     <Contact/>
     <Footer/>
   </div>
@@ -20,6 +20,7 @@ import Map from './components/Map';
 import AddReservation from './components/AddReservation';
 import Reservations from './components/Reservations';
 import Weather from './components/Weather';
+import 'bootstrap'
 
 export default {
   name: 'App',
@@ -32,14 +33,23 @@ export default {
     Reservations,
     Contact,
     Footer
-  },data(){
+  },data: function() {
     return{
-    loggedIn: false,
-    name: "User"
+    isConnected: false,
+    userName: "User",
+    email: "",
+    isAdmin: false
     }
   },
-  methods(){
-    
+  methods: {
+    setLoginData(data) {
+      console.log(data)
+      var array = data
+      this.loggedIn = array[3]
+      this.email = data[1]
+      this.userName = data[2]
+      this.isAdmin = data[4]
+    }
   }
 }
 </script>

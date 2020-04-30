@@ -1,9 +1,10 @@
 <template>
-    <div>
+    <div v-if="isAdmin">
         <h3>Reservations</h3>
         <div class="reservations"> 
             <div v-for="reservation in allReservations" :key="reservation.id" class="reservation"> 
                 {{reservation.name}}, {{reservation.store}}: {{reservation.amount}} Segways
+            <button v-on:click="removeReservation">Remove reservation</button>
             </div>
         </div>
     </div>
@@ -14,8 +15,11 @@ import {mapGetters, mapActions} from 'vuex';
 
 export default {
     name: "Reservations",
+    props:{
+        isAdmin:Boolean
+    },
     methods: {
-        ...mapActions(['fetchReservations', 'calculateReservation'])
+        ...mapActions(['fetchReservations', 'calculateReservation','removeReservation'])
     },
     computed: mapGetters(['allReservations']),
     created() {
