@@ -19,12 +19,11 @@ export default {
         isAdmin:Boolean
     },
     methods: {
-        ...mapActions(['fetchReservations', 'calculateReservation','removeReservation'])
+        ...mapActions(['fetchReservations'])
     },
     computed: mapGetters(['allReservations']),
     created() {
         this.fetchReservations();
-        this.calculateReservation();
     }
 };
 </script>

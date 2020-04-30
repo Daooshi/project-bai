@@ -52,14 +52,10 @@ export default {
         }
     },
     methods: {
-        ...mapActions(['addReservation', 'calculateReservation']),
+        ...mapActions(['addReservation']),
         onSubmit(e){
             e.preventDefault();
             this.addReservation(this.reservation);
-            this.calculateReservation();
-        },
-        setName(name){
-            this.reservation.name = name
         }
     }
 }

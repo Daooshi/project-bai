@@ -12,51 +12,49 @@ const getters = {
 
 const actions = {
     async fetchReservations({commit}){
-        const response  = await axios.get('https://projectbai-92dd.restdb.io/rest/reservations?apikey=e2188a9594267b58cb06a85133fae1183b3d9');
+        const response  = await axios.get('https://projectbai-92dd.restdb.io/rest/reservations?apikey=');
         //https://cors-anywhere.herokuapp.com/
         console.log(response.data);
-        var startData = [];
+        var startData = {
+            res: [],
+            availablity: {
+                karmelicka: 21,
+                gurgacza: 23
+            }
+        };
         for(const i in response.data){
-            startData.push(response.data[i].reservation)
+            startData.res.push(response.data[i].reservation)
         }
+        for(var i in response.data){
+        console.log(response.data[i].reservation);
+        if(response.data[i].reservation.store == 'Store Karmelicka'){ 
+            if((startData.availablity.karmelicka - response.data[i].reservation.amount) >= 0){
+                startData.availablity.karmelicka = startData.availablity.karmelicka - response.data[i].reservation.amount;
+            }else if((startData.availablity.karmelicka - response.data[i].reservation.amount) < 0){
+                startData.availablity.karmelicka = 0;
+            }
+        }else if(response.data[i].reservation.store == 'Store k.Gurgacza'){
+                if((startData.availablity.gurgacza - response.data[i].reservation.amount) >= 0){
+                    startData.availablity.gurgacza = startData.availablity.gurgacza - response.data[i].reservation.amount;
+                }else if((startData.availablity.gurgacza - response.data[i].reservation.amount) < 0){
+                    startData.availablity.gurgacza = 0;
+                }
+            }
+        }
+        console.log('inside fetchreser');
         commit('setReservations', startData);
     },
     async addReservation({commit}, reservation){
-        const response = await axios.post('https://projectbai-92dd.restdb.io/rest/reservations?apikey=e2188a9594267b58cb06a85133fae1183b3d9', {reservation});
-        console.log(response.data.reservation);
+        const response = await axios.post('https://projectbai-92dd.restdb.io/rest/reservations?apikey=', {reservation});
+        //console.log(response.data.reservation);
         commit('newReservation', response.data.reservation);
-    },
-    async removeReservation({commit}, reservation){
-        await axios.delete('https://projectbai-92dd.restdb.io/rest/reservations?apikey=e2188a9594267b58cb06a85133fae1183b3d9', {reservation});
-        this.fetchReservations(commit)
-    },
-    async calculateReservation({commit}) {
-        const response  = await axios.get('https://projectbai-92dd.restdb.io/rest/reservations?apikey=e2188a9594267b58cb06a85133fae1183b3d9');
-        console.log(response.data);
-        //console.log(response.data[0].reservation);
-        var data = {
-            karmelicka: 22,
-            gurgacza: 19
-        };
-        // for(var i = 0; i <= response.data.length; i++){
-        //     //console.log(response.data[i].reservation);
-        //     if(response.data[i].reservation.store == 'Store Karmelicka'){
-        //         data.karmelicka = data.karmelicka - response.data[i].reservation.amount;
-        //         //console.log(data.karmelicka);
-        //     }else if(response.data[i].reservation.store == 'Store k.Gurgacza'){
-        //         data.gurgacza = data.gurgacza - response.data[i].reservation.amount;
-        //         // console.log(data.gurgacza);
-        //     }
-        // }
-        console.log('data');
-        console.log(data);
-        commit('setAvailability', data);
     }
 };
 
 const mutations = {
-    setReservations: (state, reservations) => (state.reservations = reservations),
-    setAvailability: (state, availablity) => (state.availablity = availablity),
+    setReservations: (state, reservations) => {
+                                            state.reservations = reservations.res;
+                                            state.availablity = reservations.availablity},
     newReservation: (state, reservation) => state.reservations.unshift(reservation)
 };
 
