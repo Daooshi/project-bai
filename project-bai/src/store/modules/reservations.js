@@ -27,12 +27,18 @@ const actions = {
         }
         for(var i in response.data){
         console.log(response.data[i].reservation);
-        if(response.data[i].reservation.store == 'Store Karmelicka'){
-            startData.availablity.karmelicka = startData.availablity.karmelicka - response.data[i].reservation.amount;
-            console.log(startData.availablity.karmelicka);
+        if(response.data[i].reservation.store == 'Store Karmelicka'){ 
+            if((startData.availablity.karmelicka - response.data[i].reservation.amount) >= 0){
+                startData.availablity.karmelicka = startData.availablity.karmelicka - response.data[i].reservation.amount;
+            }else if((startData.availablity.karmelicka - response.data[i].reservation.amount) < 0){
+                startData.availablity.karmelicka = 0;
+            }
         }else if(response.data[i].reservation.store == 'Store k.Gurgacza'){
-            startData.availablity.gurgacza = startData.availablity.gurgacza - response.data[i].reservation.amount;
-            console.log(startData.availablity.gurgacza);
+                if((startData.availablity.gurgacza - response.data[i].reservation.amount) >= 0){
+                    startData.availablity.gurgacza = startData.availablity.gurgacza - response.data[i].reservation.amount;
+                }else if((startData.availablity.gurgacza - response.data[i].reservation.amount) < 0){
+                    startData.availablity.gurgacza = 0;
+                }
             }
         }
         console.log('inside fetchreser');
