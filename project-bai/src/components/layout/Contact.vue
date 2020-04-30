@@ -1,7 +1,11 @@
 <template>
     <div class="contact">
+        <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
         Contact for our shop on Streets:
-        
+        </div>
+        </div></div>
     </div>
 </template>
 
@@ -12,17 +16,5 @@
 </script>
 
 <style scoped>
-    .footer {
-        background: rgb(214, 6, 6);
-        color: #fff;
-        text-align: center;
-        padding: 5px;
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-    }
-    .footer a{
-        color: #fff;
-        padding-right: 5px;
-    }
+    
 </style>

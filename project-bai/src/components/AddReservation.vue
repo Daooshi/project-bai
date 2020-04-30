@@ -21,7 +21,8 @@
         </div>
         </div>
         <div v-else>
-                    <h3>Please log in by faceook if you want to make reservation</h3>
+                    <p class="lead">Please log in by faceook if you want to make reservation.</p>
+
 
         </div>
     </div>
@@ -49,9 +50,15 @@ export default {
     watch:{
         'userName': function (){
             this.setName(this.userName)
+        },
+        'isConnected': function (){
+            this.setName(this.userName)
         }
     },
     methods: {
+        setName(userName){
+            this.reservation.name = userName
+        },
         ...mapActions(['addReservation']),
         onSubmit(e){
             e.preventDefault();
@@ -78,6 +85,10 @@ input[type="submit"] {
     color: #fff;
     border: 1px #41b883 solid;
     cursor: pointer;
+}
+.h3{
+    text-decoration-color: red;
+    color: red;
 }
 
 </style>

@@ -45,7 +45,7 @@ export default {
     setLoginData(data) {
       console.log(data)
       var array = data
-      this.loggedIn = array[3]
+      this.isConnected = array[3]
       this.email = data[1]
       this.userName = data[2]
       this.isAdmin = data[4]
@@ -78,4 +78,17 @@ body{
 .btn:hover {
   background: #666;
 }
+.containter{
+        background: #333;
+}
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+
+@import'~bootstrap/dist/css/bootstrap.css'
 </style>

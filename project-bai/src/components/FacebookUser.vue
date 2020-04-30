@@ -1,3 +1,4 @@
+
 <template>
 
   <div id="facebookUser">
@@ -16,12 +17,6 @@
         </div>
         <div class="list-item">
           <i>{{name}}</i>
-        </div>
-        <div class="list-item">
-          <i>{{email}}</i>
-        </div>
-        <div class="list-item">
-          <i>{{personalID}}</i>
         </div>
       </div>
     </div>
@@ -72,6 +67,8 @@ import facebookLogin from 'facebook-login-vuejs';
     var arr = [this.personalID,this.email,this.name,this.isConnected,false]
     this.$emit('setLoginData', arr)
     this.isConnected = false;
+    var arr = [this.personalID,this.email,this.name,this.isConnected,false]
+    this.$emit('setLoginData', arr)
     },
     isAdmin(email){
         if(email==="sucharek7@gmail.com"){
@@ -83,13 +80,7 @@ import facebookLogin from 'facebook-login-vuejs';
 </script>
 
 <style >
-#app {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start
-}
 .information {
-  margin-top: 100px;
   margin: auto;
   display: flex;
   flex-direction: column;
@@ -97,13 +88,9 @@ import facebookLogin from 'facebook-login-vuejs';
 .well {
   background-color: rgb(191, 238, 229);
   margin: auto;
-  padding: 50px 50px;
-  ;
-  border-radius: 20px;
   /* display:inline-block; */
 }
 .login {
-  width: 200px;
   margin: auto;
 }
 .list-item:first-child {
@@ -111,6 +98,7 @@ import facebookLogin from 'facebook-login-vuejs';
 }
 .list-item {
   display: flex;
+  align-self: center;
   align-items: center;
   margin-top: 20px;
 }

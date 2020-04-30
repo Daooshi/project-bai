@@ -4,7 +4,7 @@
         <div class="reservations"> 
             <div v-for="reservation in allReservations" :key="reservation.id" class="reservation"> 
                 {{reservation.name}}, {{reservation.store}}: {{reservation.amount}} Segways
-            <button v-on:click="removeReservation">Remove reservation</button>
+            <button class="btn btn-primary" v-on:click="removeReservation">Remove reservation</button>
             </div>
         </div>
     </div>
