@@ -4,10 +4,10 @@
     <div style="height: 200px overflow: auto;">
       <p>These are our stores. Click on them for more info!</p>
       <br>
-      <button @click="showLongText">
+      <button class="btn btn-primary" @click="showLongText">
         Show availablity in the store
       </button>
-      <button @click="showMap = !showMap">
+      <button class="btn btn-primary" @click="showMap = !showMap">
         Toggle map
       </button>
     </div>
@@ -109,4 +109,5 @@ export default {
         this.fetchReservations();
     }
 };
+
 </script>

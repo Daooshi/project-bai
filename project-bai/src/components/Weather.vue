@@ -45,5 +45,8 @@ import axios from 'axios';
 </script>
 
 <style scoped>
+p{
+    background-color: yellow;
 
+}
 </style>

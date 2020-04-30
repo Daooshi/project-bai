@@ -1,3 +1,4 @@
+
 <template>
 
   <div id="facebookUser">
@@ -9,19 +10,13 @@
       @sdk-loaded="sdkLoaded">
     </facebook-login>
     <div v-if="isConnected" class="information">
-      <h1>My Facebook Information</h1>
+      <h1>Hi {{name}}! You are logged in.</h1>
       <div class="well">
         <div class="list-item">
           <img :src="picture">
         </div>
         <div class="list-item">
           <i>{{name}}</i>
-        </div>
-        <div class="list-item">
-          <i>{{email}}</i>
-        </div>
-        <div class="list-item">
-          <i>{{personalID}}</i>
         </div>
       </div>
     </div>
@@ -53,6 +48,9 @@ import facebookLogin from 'facebook-login-vuejs';
         this.email = user.email;
         this.name = user.name;
         this.picture = user.picture.data.url;
+        var isAdm = this.isAdmin(this.email)
+        var arr = [this.personalID,this.email,this.name,this.isConnected,isAdm]
+        this.$emit('setLoginData', arr)
         }
     )
     },
@@ -67,18 +65,20 @@ import facebookLogin from 'facebook-login-vuejs';
     },
     onLogout() {
     this.isConnected = false;
+    var arr = [this.personalID,this.email,this.name,this.isConnected,false]
+    this.$emit('setLoginData', arr)
+    },
+    isAdmin(email){
+        if(email==="sucharek7@gmail.com"){
+            return true
+        }
+        return false
     }
     }}
 </script>
 
 <style >
-#app {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start
-}
 .information {
-  margin-top: 100px;
   margin: auto;
   display: flex;
   flex-direction: column;
@@ -86,13 +86,9 @@ import facebookLogin from 'facebook-login-vuejs';
 .well {
   background-color: rgb(191, 238, 229);
   margin: auto;
-  padding: 50px 50px;
-  ;
-  border-radius: 20px;
   /* display:inline-block; */
 }
 .login {
-  width: 200px;
   margin: auto;
 }
 .list-item:first-child {
@@ -100,6 +96,7 @@ import facebookLogin from 'facebook-login-vuejs';
 }
 .list-item {
   display: flex;
+  align-self: center;
   align-items: center;
   margin-top: 20px;
 }

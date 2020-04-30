@@ -1,11 +1,12 @@
 <template>
   <div id="app">
     <Header/>
-    <FacebookUser/>
+    <FacebookUser @setLoginData="setLoginData"> </FacebookUser>>
     <Weather/>
     <Map/>
-    <AddReservation/>
-    <Reservations/>
+    <AddReservation :userName="userName" :isConnected ="isConnected"></AddReservation>
+    <Reservations :isAdmin = "isAdmin"></Reservations>
+    <Contact/>
     <Footer/>
   </div>
 </template>
@@ -13,11 +14,13 @@
 <script>
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
+import Contact from './components/layout/Contact';
 import FacebookUser from './components/FacebookUser';
 import Map from './components/Map';
 import AddReservation from './components/AddReservation';
 import Reservations from './components/Reservations';
 import Weather from './components/Weather';
+import 'bootstrap'
 
 export default {
   name: 'App',
@@ -25,16 +28,28 @@ export default {
     Header,
     Weather,
     Map,
-    Footer,
     FacebookUser,
     AddReservation,
-    Reservations
-  },data(){
+    Reservations,
+    Contact,
+    Footer
+  },data: function() {
     return{
-    loggedIn: false,
-    name: "User"
+    isConnected: false,
+    userName: "User",
+    email: "",
+    isAdmin: false
     }
-
+  },
+  methods: {
+    setLoginData(data) {
+      console.log(data)
+      var array = data
+      this.isConnected = array[3]
+      this.email = data[1]
+      this.userName = data[2]
+      this.isAdmin = data[4]
+    }
   }
 }
 </script>
@@ -63,4 +78,17 @@ body{
 .btn:hover {
   background: #666;
 }
+.containter{
+        background: #333;
+}
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+
+@import'~bootstrap/dist/css/bootstrap.css'
 </style>

@@ -12,7 +12,7 @@ const getters = {
 
 const actions = {
     async fetchReservations({commit}){
-        const response  = await axios.get('https://projectbai-92dd.restdb.io/rest/reservations?apikey=');
+        const response  = await axios.get('https://projectbai-92dd.restdb.io/rest/reservations?apikey=e2188a9594267b58cb06a85133fae1183b3d9');
         //https://cors-anywhere.herokuapp.com/
         console.log(response.data);
         var startData = {
@@ -45,7 +45,12 @@ const actions = {
         commit('setReservations', startData);
     },
     async addReservation({commit}, reservation){
-        const response = await axios.post('https://projectbai-92dd.restdb.io/rest/reservations?apikey=', {reservation});
+        const response = await axios.post('https://projectbai-92dd.restdb.io/rest/reservations?apikey=e2188a9594267b58cb06a85133fae1183b3d9', {reservation});
+        //console.log(response.data.reservation);
+        commit('newReservation', response.data.reservation);
+    },
+    async removeReservation({commit}, reservation){
+        const response = await axios.post('https://projectbai-92dd.restdb.io/rest/reservations?apikey=e2188a9594267b58cb06a85133fae1183b3d9', {reservation});
         //console.log(response.data.reservation);
         commit('newReservation', response.data.reservation);
     }
