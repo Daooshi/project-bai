@@ -13,12 +13,12 @@ import axios from 'axios';
             getWeather: function(){
                 axios({
                     method: 'GET',
-                    url: 'https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/523920/'
+                    url: 'https://www.metaweather.com/api/location/523920/'
                 }).then(function (response) {
                     // handle success
-                    console.log(response.data.consolidated_weather);
+                    //console.log(response.data.consolidated_weather);
                     for(let i = 0; i < response.data.consolidated_weather.length; i++){
-                        console.log(response.data.consolidated_weather[i]);
+                        //console.log(response.data.consolidated_weather[i]);
                         let weatherString = 'Date: ' + response.data.consolidated_weather[i].applicable_date 
                                             + ' Min/Max Temperature: ' + Math.round(response.data.consolidated_weather[i].min_temp / 2) + '/' + Math.round(response.data.consolidated_weather[i].max_temp / 2) + ' °C'
                                             + ' Weather state: ' + response.data.consolidated_weather[i].weather_state_name;
@@ -45,5 +45,8 @@ import axios from 'axios';
 </script>
 
 <style scoped>
+p{
+    background-color: yellow;
 
+}
 </style>
