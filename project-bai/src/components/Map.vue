@@ -30,7 +30,7 @@
             Store k.Gurgacza 6
             <p v-show="showParagraph">
                 Available segways to rent:
-                - 4
+                {{allAvailability.gurgacza}}
             </p>
           </div>
         </l-popup>
@@ -41,7 +41,7 @@
             Store Karmelicka 45
             <p v-show="showParagraph">
                 Available segways to rent:
-                - 6
+                {{allAvailability.karmelicka}}
             </p>
           </div>
         </l-popup>
@@ -54,6 +54,7 @@
 import { latLng } from "leaflet";
 import { LMap, LTileLayer, LMarker, LPopup } from "vue2-leaflet";
 import { Icon } from 'leaflet';
+import {mapGetters, mapActions} from 'vuex';
 
 delete Icon.Default.prototype._getIconUrl;
 Icon.Default.mergeOptions({
@@ -100,7 +101,12 @@ export default {
     },
     innerClick() {
       alert("Click!");
+    },
+    ...mapActions(['fetchReservations'])
+  },
+  computed: mapGetters(['allAvailability']),
+      updated() {
+        this.fetchReservations();
     }
-  }
 };
 </script>
