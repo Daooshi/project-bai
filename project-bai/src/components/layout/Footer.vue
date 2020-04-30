@@ -1,6 +1,8 @@
 <template>
     <div class="footer">
+        <div class="container">
         Copyright &copy; {{ new Date().getFullYear() }}
+        </div>
     </div>
 </template>
 
@@ -13,10 +15,9 @@
 <style scoped>
     .footer {
         background: #333;
-        color: #fff;
+        color: rgb(75, 72, 72);
         text-align: center;
         padding: 5px;
-        position: absolute;
         bottom: 0;
         width: 100%;
     }
