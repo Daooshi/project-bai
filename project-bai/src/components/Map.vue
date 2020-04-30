@@ -109,4 +109,5 @@ export default {
         this.fetchReservations();
     }
 };
+
 </script>
