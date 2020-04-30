@@ -54,7 +54,7 @@
 import { latLng } from "leaflet";
 import { LMap, LTileLayer, LMarker, LPopup } from "vue2-leaflet";
 import { Icon } from 'leaflet';
-import {mapGetters} from 'vuex';
+import {mapGetters, mapActions} from 'vuex';
 
 delete Icon.Default.prototype._getIconUrl;
 Icon.Default.mergeOptions({
@@ -101,8 +101,12 @@ export default {
     },
     innerClick() {
       alert("Click!");
-    }
+    },
+    ...mapActions(['fetchReservations'])
   },
-  computed: mapGetters(['allReservations', 'allAvailability'])
+  computed: mapGetters(['allAvailability']),
+      updated() {
+        this.fetchReservations();
+    }
 };
 </script>
