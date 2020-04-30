@@ -15,12 +15,11 @@ import {mapGetters, mapActions} from 'vuex';
 export default {
     name: "Reservations",
     methods: {
-        ...mapActions(['fetchReservations', 'calculateReservation'])
+        ...mapActions(['fetchReservations'])
     },
     computed: mapGetters(['allReservations']),
     created() {
         this.fetchReservations();
-        this.calculateReservation();
     }
 };
 </script>
