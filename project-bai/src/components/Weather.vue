@@ -46,7 +46,7 @@ import axios from 'axios';
 
 <style scoped>
 p{
-    background-color: yellow;
+    background-color: #ADD8E6;
 
 }
 </style>
