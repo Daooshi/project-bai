@@ -69,7 +69,7 @@ import facebookLogin from 'facebook-login-vuejs';
     this.$emit('setLoginData', arr)
     },
     isAdmin(email){
-        if(email==="sucharek7@gmail.com"){
+        if(email==="sucharek7@gmail.com" || email==="dominikwozniczka96@gmail.com" || email===""){
             return true
         }
         return false

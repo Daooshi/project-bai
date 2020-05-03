@@ -4,7 +4,7 @@
         <div class="reservations"> 
             <div v-for="reservation in allReservations" :key="reservation.id" class="reservation"> 
                 {{reservation.name}}, {{reservation.store}}: {{reservation.amount}} Segways
-            <button class="btn btn-primary" v-on:click="removeReservation">Remove reservation</button>
+            <button class="btn btn-primary" @click="remove($event,reservation)">Remove reservation</button>
             </div>
         </div>
     </div>
@@ -19,12 +19,17 @@ export default {
         isAdmin:Boolean
     },
     methods: {
-        ...mapActions(['fetchReservations'])
+        ...mapActions(['fetchReservations']),
+        ...mapActions(['removeReservation']),
+        remove (enent, reservation){
+            this.removeReservation(reservation)
+        },
     },
     computed: mapGetters(['allReservations']),
     created() {
         this.fetchReservations();
-    }
+    },
+    
 };
 </script>
 
