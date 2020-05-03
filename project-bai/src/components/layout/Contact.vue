@@ -3,7 +3,16 @@
         <div class="container">
     <div class="row">
       <div class="col-lg-12 text-center">
-        Contact for our shop on Streets:
+
+        <p>Contact for our rental points:</p>
+        <p>Karmelicka 45
+            31-370 Cracow
+            +48544324654</p>
+        <p>Grugracz 6
+            31-368 Cracow
+            +48435235754
+        </p>
+
         </div>
         </div></div>
     </div>
