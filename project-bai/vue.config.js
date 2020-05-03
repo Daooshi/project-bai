@@ -1,5 +1,7 @@
 module.exports = {
-    publicPath: '/Projekt_BAI/',
+    publicPath: process.env.NODE_ENV === 'production'
+    ? '/project-bai/'
+    : '/',
     devServer: {
         open: process.platform === 'darwin',
         host: '192.168.0.17',
