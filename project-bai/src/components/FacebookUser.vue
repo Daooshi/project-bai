@@ -84,7 +84,7 @@ import facebookLogin from 'facebook-login-vuejs';
   flex-direction: column;
 }
 .well {
-  background-color:#ADD8E6;
+  background-color:#3b5998;
   margin: auto;
   /* display:inline-block; */
 }

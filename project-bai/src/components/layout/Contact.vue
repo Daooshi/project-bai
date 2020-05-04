@@ -4,7 +4,7 @@
     <div class="row">
       <div class="col-lg-12 text-center">
 
-        <p>Contact for our rental points:</p>
+        <p style="margin-top: 35px;">Contact for our rental points:</p>
         <p>Karmelicka 45
             31-370 Cracow
             +48544324654</p>

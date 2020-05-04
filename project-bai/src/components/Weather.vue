@@ -1,8 +1,10 @@
 <template>
-    <div>
-        <h3>This is the weather for the next 5 days!</h3>
+<div>
+    <h3>This is the weather for the next 5 days!</h3>
+    <div class="wrapper">
         <p id="myWeather"></p>
     </div>
+</div>
 </template>
 
 <script>
@@ -45,8 +47,22 @@ import axios from 'axios';
 </script>
 
 <style scoped>
-p{
-    background-color: #ADD8E6;
+.wrapper {
+    display: grid;
+    justify-content: center;
+    grid-gap: 1rem;
+}
 
+p{
+    border: 1px solid #ccc;
+    background: #41b883;
+    padding: 1rem;
+    border-radius: 20px;
+    text-align: left;
+    position: relative;
+
+}
+h3 {
+    padding: 1rem;
 }
 </style>

@@ -72,6 +72,12 @@ export default {
 form {
     display: flex;
 }
+select{
+    flex: 5;
+    padding: 12px;
+    border: 1px solid #41b883;
+    outline: 0;
+}
 
 input[type="text"] {
     flex: 10;
@@ -79,6 +85,14 @@ input[type="text"] {
     border: 1px solid #41b883;
     outline: 0;
 }
+
+input[type="number"] {
+    flex: 3;
+    padding: 10px;
+    border: 1px solid #41b883;
+    outline: 0;
+}
+
 input[type="submit"] {
     flex: 2;
     background: #41b883;
@@ -86,9 +100,11 @@ input[type="submit"] {
     border: 1px #41b883 solid;
     cursor: pointer;
 }
-.h3{
-    text-decoration-color: red;
-    color: red;
+
+h3{
+    flex: 5;
+    padding: 12px;
+    outline: 0;
 }
 
 </style>
